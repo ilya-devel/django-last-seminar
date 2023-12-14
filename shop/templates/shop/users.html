@@ -1,0 +1,30 @@
+{% extends "base/base.html" %}
+
+{% block content %}
+    <p class="h1 text-center">Customer</h1>
+    <hr>
+    <div class="table-responsive-md">
+        <table class="table table-primary">
+            <thead>
+                <tr>
+                    <th scope="col">ID</th>
+                    <th scope="col">Full Name</th>
+                    <th scope="col">Email</th>
+                    <th scope="col">Phone</th>
+                </tr>
+            </thead>
+            <tbody>
+                {% for customer in customers %}
+                <tr class="">
+                    <td scope="row">{{ customer.id }}</td>
+                    <td><a href="{% url 'customer_orders' customer.id %}">{{ customer.name }}</a></td>
+                    <td>{{ customer.email }}</td>
+                    <td>{{ customer.phone_number }}</td>
+                </tr>
+                {% endfor %}
+            </tbody>
+        </table>
+    </div>
+
+
+{% endblock content %}
